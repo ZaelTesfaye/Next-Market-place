@@ -1,3 +1,5 @@
+'use client'
+
 import {Button} from "@/components/ui/button"
 import {Card, CardContent, CardDescription, CardFooter, CardHeader} from "@/components/ui/card"
 import {Input} from "@/components/ui/input"
@@ -6,11 +8,12 @@ import {Separator} from "@/components/ui/separator"
 import {Icons} from "@/components/icons"
 import LoginButton from "@/app/login/LoginButton";
 import AuthMode from "@/app/login/AuthMode";
-import {login} from "@/app/login/actions";
+import {login, signup} from "@/app/login/actions";
+import {useAuth} from "@/context/AuthContextProvider";
 
 export default function AuthForm() {
 
-
+    const {loginAuth, setLoginAuth} = useAuth();
     return (
         <div className="flex justify-center">
             <Card className="w-[350px]">
@@ -23,7 +26,7 @@ export default function AuthForm() {
                 <CardContent className="grid gap-4">
 
                     <Separator/>
-                    <form action={login}>
+                    <form action={loginAuth? login : signup}>
                         <div className="grid gap-2">
                             <Label htmlFor="email">Email</Label>
                             <Input name="email" type="email" placeholder="m@example.com"/>

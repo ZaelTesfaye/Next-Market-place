@@ -14,7 +14,7 @@ export const findAndSetCoordinate = async (address: string) => {
     const key = process.env.GEO_CODE_API_KEY!;
     const response = await fetch(`https://geocode.maps.co/search?q=${encodedAddress}&api_key=${key}`)
     if (!response.ok) return {status: false, message: "Couldn't find the place"};
-    const [{lat, lon}]: [{ lat: string, lon: string }] = await response.json();
+    const [{lat='0', lon='0'}]: [{ lat: string, lon: string }] = await response.json();
     if (!lat) return {status: false, message: "Couldn't find the place"};
 
     const supabase = createClient();

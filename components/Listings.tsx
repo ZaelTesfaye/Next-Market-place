@@ -76,7 +76,7 @@ const Listings = ({forSell, setCoordinates}) => {
             </div>
 
             <div className={"pt-5 pl-12"}>
-                <Filter setParking={setParking} setBathroom={setBathroom} setBedroom={setBedroom}
+                <Filter setParking={(value)=> setParking(value)} setBathroom={setBathroom} setBedroom={setBedroom}
                         setHomeType={setHomeType}/>
             </div>
 

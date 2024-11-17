@@ -17,10 +17,13 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-
+        <head>
+            <title>Zello</title>
+            <link rel="icon" href="/logo.png"/>
+        </head>
         <body>
         <LoginStatusProvider>
-            <AuthContextProvider>
+        <AuthContextProvider>
                 <Provider>
                     {children}
                 </Provider>
